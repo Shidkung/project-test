@@ -10,10 +10,7 @@ export class CreateUsersDto {
   password: string;
   
   @IsNotEmpty()
-  @IsEmail()
-  name: string;
-
+  name: string
   @IsNotEmpty()
-  @IsEmail()
   role: string;
 }
