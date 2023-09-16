@@ -16,16 +16,10 @@ export class UsersService {
     return await this.userRepository.findOne({where:{username:username}})
   }
  async register(createUserDto: CreateUsersDto) {
-    const check = await this.findUserByUsername(createUserDto.username);
-    console.log(check)
    
-     if(check !== undefined){
-       return "Have this account"
-     }
-     else{
     const newUser = this.userRepository.create(createUserDto);
     return this.userRepository.save(newUser)
-     }
+     
   }
   findUsersById(id: number) {
     return this.userRepository.findOne({where:{user_id:id}});
